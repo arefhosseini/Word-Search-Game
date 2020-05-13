@@ -58,6 +58,7 @@ public class MainMenuActivity extends FullscreenActivity {
         mViewModel = ViewModelProviders.of(this, mViewModelFactory).get(MainMenuViewModel.class);
         mViewModel.getOnGameThemeLoaded().observe(this, this::showGameThemeList);
         mViewModel.getOnReadyWords().observe(this, this::onReadyWords);
+        mViewModel.getOnGetError().observe(this, this::onGetError);
 
 
         mAdapter = new MultiTypeAdapter();
@@ -103,14 +104,22 @@ public class MainMenuActivity extends FullscreenActivity {
         else {
             Util.hideKeyboard(this);
             mViewModel.fetchRelations(text);
-            progressdialog = new ProgressDialog(this);
-            progressdialog.setMessage("لطفا منتظر بمانید");
-            progressdialog.show();
+            showLoading();
         }
     }
 
-    private void onReadyWords(List<Word> words) {
+    private void showLoading() {
+        progressdialog = new ProgressDialog(this);
+        progressdialog.setMessage("لطفا منتظر بمانید");
+        progressdialog.show();
+    }
+
+    private void hideLoading() {
         progressdialog.dismiss();
+    }
+
+    private void onReadyWords(List<Word> words) {
+        hideLoading();
         if (words.isEmpty()) {
             Toast.makeText(getApplicationContext(), "متاسفانه کلمات مشترکی پیدا نشد", Toast.LENGTH_LONG).show();
         }
@@ -127,5 +136,10 @@ public class MainMenuActivity extends FullscreenActivity {
             intent.putExtra(GamePlayActivity.EXTRA_DATA, (Serializable) words);
             startActivity(intent);
         }
+    }
+
+    private void onGetError(Void v) {
+        hideLoading();
+        Toast.makeText(getApplicationContext(), "مشکلی پیش آمده است، مجددا تلاش کنید", Toast.LENGTH_LONG).show();
     }
 }

@@ -40,6 +40,7 @@ public class MainMenuViewModel extends ViewModel {
     private MutableLiveData<List<GameTheme>> mOnGameThemeLoaded;
 
     private SingleLiveEvent<List<Word>> onReadyWords;
+    private SingleLiveEvent<Void> onGetError;
 
     private List<Ontology> ontologies;
 
@@ -51,6 +52,7 @@ public class MainMenuViewModel extends ViewModel {
         compositeDisposable = new CompositeDisposable();
         mOnGameThemeLoaded = new MutableLiveData<>();
         onReadyWords = new SingleLiveEvent<>();
+        onGetError = new SingleLiveEvent<>();
 
         Disposable disposable = Observable.create((ObservableOnSubscribe<List<Ontology>>) emitter -> {
             emitter.onNext(ontologyDataSource.getOntology().getAllOntology());
@@ -73,11 +75,13 @@ public class MainMenuViewModel extends ViewModel {
     }
 
     public void fetchRelations(String text) {
-        //                    onFetchRelations.setValue(relationsResponse);
         Disposable disposable = dataManager.getRelations(text)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this::getRelationWords, throwable -> Log.e(TAG, "Throwable " + throwable.getMessage()));
+                .subscribe(this::getRelationWords, throwable -> {
+                    Log.e(TAG, "Throwable " + throwable.getMessage());
+                    onGetError.setValue(null);
+                });
 
         compositeDisposable.add(disposable);
     }
@@ -124,5 +128,9 @@ public class MainMenuViewModel extends ViewModel {
 
     public SingleLiveEvent<List<Word>> getOnReadyWords() {
         return onReadyWords;
+    }
+
+    public SingleLiveEvent<Void> getOnGetError() {
+        return onGetError;
     }
 }
