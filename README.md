@@ -3,4 +3,4 @@ This is a very simple puzzle game, where the player try to find some words in a 
 
 ## Screenshot
 
-![Screenshot 1](sc/sc.jpg)
+![Screenshot 1](sc/screenshot.png)
