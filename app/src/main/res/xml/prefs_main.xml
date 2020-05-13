@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-        android:title="General">
+        android:title="تنظیمات کلی">
 
         <CheckBoxPreference
             android:title="@string/enable_sound"
@@ -20,7 +20,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="Game Play">
+        android:title="تنظیمات پیشرفته">
 
         <CheckBoxPreference
             android:title="@string/auto_scale_grid"
@@ -31,21 +31,21 @@
 
         <CheckBoxPreference
             android:title="@string/delete_finish"
-            android:summary="Delete game data when it finished"
+            android:summary="وقتی دور تمام شد، اطلاعات پاک شود."
             android:icon="@drawable/ic_delete_after_finish"
             android:key="@string/pref_deleteAfterFinish"
             android:defaultValue="true"/>
 
         <CheckBoxPreference
             android:title="@string/grayscale"
-            android:summary="Disable colors"
+            android:summary="غیرفعال کردن رنگ"
             android:icon="@drawable/ic_grayscale"
             android:key="@string/pref_grayscale"
             android:defaultValue="false"/>
 
         <CheckBoxPreference
             android:title="@string/reverse_matching"
-            android:summary="Allow reverse word selection"
+            android:summary="کلمات به صورت برعکس نیز در جدول قرار بگیرند."
             android:icon="@drawable/ic_reverse_match"
             android:key="@string/pref_reverseMatching"
             android:defaultValue="true"/>

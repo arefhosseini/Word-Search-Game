@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import com.fearefull.wordsearch.R;
 
 /**
- * Created by abdularis on 22/06/17.
+ * Created by Aref Hosseini on 22/06/17.
  *
  * Digunakan untuk merender grid line
  *  ____________

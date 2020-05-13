@@ -1,7 +1,7 @@
 package com.fearefull.wordsearch.model;
 
 /**
- * Created by abdularis on 08/07/17.
+ * Created by Aref Hosseini on 08/07/17.
  */
 
 public class Grid {

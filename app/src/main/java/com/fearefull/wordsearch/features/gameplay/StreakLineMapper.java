@@ -5,7 +5,7 @@ import com.fearefull.wordsearch.model.UsedWord;
 import com.fearefull.wordsearch.custom.StreakView;
 
 /**
- * Created by abdularis on 09/07/17.
+ * Created by Aref Hosseini on 09/07/17.
  */
 
 public class StreakLineMapper extends Mapper<UsedWord.AnswerLine, StreakView.StreakLine> {

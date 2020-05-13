@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- * Created by abdularis on 20/06/17.
+ * Created by Aref Hosseini on 20/06/17.
  *
  * Garis yang bisa didrag (coretan didalam word search game)
  */

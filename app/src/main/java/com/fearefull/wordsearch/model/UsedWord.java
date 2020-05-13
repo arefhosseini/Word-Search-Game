@@ -1,7 +1,7 @@
 package com.fearefull.wordsearch.model;
 
 /**
- * Created by abdularis on 08/07/17.
+ * Created by Aref Hosseini on 08/07/17.
  */
 
 public class UsedWord extends Word {
@@ -10,12 +10,14 @@ public class UsedWord extends Word {
     private boolean mAnswered;
     private boolean mIsMystery;
     private int mRevealCount;
+    private String title;
 
     public UsedWord() {
         mAnswerLine = null;
         mAnswered = false;
         mIsMystery = false;
         mRevealCount = 0;
+        title = null;
     }
 
     public AnswerLine getAnswerLine() {
@@ -48,6 +50,14 @@ public class UsedWord extends Word {
 
     public void setRevealCount(int revealCount) {
         mRevealCount = revealCount;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public static final class AnswerLine {

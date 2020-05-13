@@ -5,7 +5,7 @@ import com.fearefull.wordsearch.model.UsedWord;
 import java.util.List;
 
 /**
- * Created by abdularis on 08/07/17.
+ * Created by Aref Hosseini on 08/07/17.
  */
 
 public class GameDataEntity {

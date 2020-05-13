@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import android.view.MotionEvent;
 
 /**
- * Created by abdularis on 15/06/17.
+ * Created by Aref Hosseini on 15/06/17.
  *
  * Digunakan untuk memproses data dari MouseEvent agar lebih mudah digunakan,
  * memiliki movement threshold untuk mengubah sensitivitas perpindahan sentuhan

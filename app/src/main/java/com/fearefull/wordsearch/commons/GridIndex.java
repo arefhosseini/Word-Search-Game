@@ -1,7 +1,7 @@
 package com.fearefull.wordsearch.commons;
 
 /**
- * Created by abdularis on 29/06/17.
+ * Created by Aref Hosseini.
  */
 
 public class GridIndex {

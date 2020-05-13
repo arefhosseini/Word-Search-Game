@@ -17,7 +17,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- * Created by abdularis on 26/06/17.
+ * Created by Aref Hosseini on 26/06/17.
  *
  * Compound view untuk wordsearch game
  * yang memiliki tiga layer yaitu

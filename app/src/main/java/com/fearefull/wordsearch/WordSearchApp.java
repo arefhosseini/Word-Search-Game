@@ -7,7 +7,7 @@ import com.fearefull.wordsearch.di.component.DaggerAppComponent;
 import com.fearefull.wordsearch.di.modules.AppModule;
 
 /**
- * Created by abdularis on 18/07/17.
+ * Created by Aref Hosseini.
  */
 
 public class WordSearchApp extends Application {

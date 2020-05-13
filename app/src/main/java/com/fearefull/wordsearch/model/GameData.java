@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by abdularis on 08/07/17.
+ * Created by Aref Hosseini.
  */
 
 public class GameData {

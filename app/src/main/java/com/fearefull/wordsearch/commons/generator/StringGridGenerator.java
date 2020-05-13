@@ -3,7 +3,7 @@ package com.fearefull.wordsearch.commons.generator;
 import com.fearefull.wordsearch.model.Grid;
 
 /**
- * Created by abdularis on 06/07/17.
+ * Created by Aref Hosseini.
  *
  * Parse dataInput kedalam array grid[][]
  */

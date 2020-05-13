@@ -1,5 +1,7 @@
 package com.fearefull.wordsearch.commons.generator;
 
+import android.util.Log;
+
 import com.fearefull.wordsearch.commons.Direction;
 import com.fearefull.wordsearch.commons.Util;
 
@@ -7,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by abdularis on 06/07/17.
+ * Created by Aref Hosseini.
  *
  * Try to pack all string list into grid array
  */

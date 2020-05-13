@@ -3,7 +3,7 @@ package com.fearefull.wordsearch.features.gameplay;
 import com.fearefull.wordsearch.custom.LetterGridDataAdapter;
 
 /**
- * Created by abdularis on 09/07/17.
+ * Created by Aref Hosseini on 09/07/17.
  */
 
 public class ArrayLetterGridDataAdapter extends LetterGridDataAdapter {

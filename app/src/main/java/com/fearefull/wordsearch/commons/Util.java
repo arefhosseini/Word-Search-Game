@@ -1,12 +1,18 @@
 package com.fearefull.wordsearch.commons;
 
+import android.app.Activity;
+import android.content.Context;
 import android.graphics.Color;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
 /**
- * Created by abdularis on 23/06/17.
+ * Created by Aref Hosseini on 23/06/17.
  */
 
 public class Util {
@@ -22,8 +28,11 @@ public class Util {
     }
 
     public static char getRandomChar() {
-        // ASCII A = 65 - Z = 90
-        return (char) getRandomIntRange(65, 90);
+        return getPersianCharList().get(sRand.nextInt(getPersianCharList().size()));
+    }
+
+    public static List<Character> getPersianCharList() {
+        return Arrays.asList('ا', 'ب', 'پ', 'ت', 'ث', 'ج', 'چ', 'ح', 'خ', 'د', 'ذ', 'ر' , 'ز', 'ژ', 'س', 'ش', 'ص', 'ض', 'ط', 'ظ', 'ع', 'غ', 'ف', 'ق', 'ک', 'گ', 'ل', 'م', 'ن', 'و', 'ه', 'ی');
     }
 
     /**
@@ -95,4 +104,13 @@ public class Util {
         }
     }
 
+    public static void hideKeyboard(Activity activity) {
+        // Check if no view has focus:
+        View view = activity.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            assert imm != null;
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
 }

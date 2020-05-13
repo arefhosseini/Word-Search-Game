@@ -1,10 +1,12 @@
 package com.fearefull.wordsearch.model;
 
+import java.io.Serializable;
+
 /**
- * Created by abdularis on 08/07/17.
+ * Created by Aref Hosseini on 08/07/17.
  */
 
-public class Word {
+public class Word implements Serializable {
 
     private int mId;
     private String mString;
@@ -28,6 +30,10 @@ public class Word {
 
     public String getString() {
         return mString;
+    }
+
+    public String getShortString() {
+        return mString.replaceAll(" ", "").replaceAll("_", "");
     }
 
     public void setString(String string) {

@@ -9,7 +9,7 @@ import com.fearefull.wordsearch.custom.StreakView;
 import javax.inject.Inject;
 
 /**
- * Created by abdularis on 19/07/17.
+ * Created by Aref Hosseini on 19/07/17.
  */
 
 public class Preferences {

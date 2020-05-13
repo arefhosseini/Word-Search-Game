@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by abdularis on 30/07/17.
+ * Created by Aref Hosseini on 30/07/17.
  */
 
 public class AppCompatPreferenceActivity extends PreferenceActivity {

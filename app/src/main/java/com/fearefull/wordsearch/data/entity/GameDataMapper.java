@@ -7,7 +7,7 @@ import com.fearefull.wordsearch.model.GameData;
 import com.fearefull.wordsearch.model.Grid;
 
 /**
- * Created by abdularis on 08/07/17.
+ * Created by Aref Hosseini on 08/07/17.
  */
 
 public class GameDataMapper extends Mapper<GameDataEntity, GameData> {

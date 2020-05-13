@@ -10,7 +10,7 @@ import com.fearefull.wordsearch.R;
 
 
 /**
- * Created by abdularis on 24/06/17.
+ * Created by Aref Hosseini on 24/06/17.
  *
  * FlowLayout meletakan content secara horizontal dan wrap secara vertical
  * ketika tidak ada lagi space horizontal

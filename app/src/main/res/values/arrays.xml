@@ -16,8 +16,8 @@
 
 
     <string-array name="snap_to_grid_type_prefs">
-        <item>Always Snap</item>
-        <item>Start and End</item>
+        <item>به صورت همیشه</item>
+        <item>فقط اول و انتها</item>
     </string-array>
     <string-array name="snap_to_grid_type_prefs_val">
         <item>ALWAYS_SNAP</item>

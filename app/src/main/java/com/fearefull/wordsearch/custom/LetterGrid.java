@@ -15,7 +15,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- * Created by abdularis on 22/06/17.
+ * Created by Aref Hosseini on 22/06/17.
  *
  * Render grid of letters
  */

@@ -3,7 +3,7 @@ package com.fearefull.wordsearch.commons;
 import java.util.Locale;
 
 /**
- * Created by abdularis on 19/07/17.
+ * Created by Aref Hosseini on 19/07/17.
  */
 
 public abstract class DurationFormatter {

@@ -1,6 +1,5 @@
 package com.fearefull.wordsearch.features.gameplay;
 
-
 import com.fearefull.wordsearch.commons.Util;
 import com.fearefull.wordsearch.commons.generator.StringListGridGenerator;
 import com.fearefull.wordsearch.model.GameData;
@@ -16,7 +15,7 @@ import java.util.Locale;
 
 
 /**
- * Created by abdularis on 20/07/17.
+ * Created by Aref Hosseini.
  */
 
 public class GameDataCreator {
@@ -29,12 +28,12 @@ public class GameDataCreator {
         Util.randomizeList(words);
 
         Grid grid = new Grid(rowCount, colCount);
-        int maxCharCount = Math.min(rowCount, colCount);
+        int maxCharCount = Math.max(rowCount, colCount);
         List<String> usedStrings =
                 new StringListGridGenerator()
                         .setGrid(getStringListFromWord(words, 100, maxCharCount), grid.getArray());
 
-        gameData.addUsedWords(buildUsedWordFromString(usedStrings));
+        gameData.addUsedWords(buildUsedWordFromString(usedStrings, words));
         gameData.setGrid(grid);
         if (name == null || name.isEmpty()) {
             String name1 = "Puzzle " +
@@ -48,20 +47,32 @@ public class GameDataCreator {
         return gameData;
     }
 
-    private List<UsedWord> buildUsedWordFromString(List<String> strings) {
+    private List<UsedWord> buildUsedWordFromString(List<String> strings, List<Word> words) {
         int mysteryWordCount = Util.getRandomIntRange(strings.size() / 2, strings.size());
         List<UsedWord> usedWords = new ArrayList<>();
         for (int i = 0; i < strings.size(); i++) {
             String str = strings.get(i);
 
+            Word selectedWord = null;
             UsedWord uw = new UsedWord();
             uw.setString(str);
             uw.setAnswered(false);
-            if (mysteryWordCount > 0) {
-                uw.setIsMystery(true);
-                uw.setRevealCount(Util.getRandomIntRange(0, str.length() - 1));
-                mysteryWordCount--;
+
+            for (Word word : words) {
+                if (word.getShortString().equals(str)) {
+                    selectedWord = word;
+                    break;
+                }
             }
+
+            if (selectedWord != null) {
+                uw.setTitle(selectedWord.getString());
+            }
+//            if (mysteryWordCount > 0) {
+//                uw.setIsMystery(true);
+//                uw.setRevealCount(Util.getRandomIntRange(0, str.length() - 1));
+//                mysteryWordCount--;
+//            }
 
             usedWords.add(uw);
         }
@@ -77,8 +88,7 @@ public class GameDataCreator {
         String temp;
         for (int i = 0; i < words.size(); i++) {
             if (stringList.size() >= count) break;
-
-            temp = words.get(i).getString();
+            temp = words.get(i).getShortString();
             if (temp.length() <= maxCharCount) {
                 stringList.add(temp);
             }

@@ -9,10 +9,12 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.fearefull.wordsearch.R;
+import com.fearefull.wordsearch.model.RelationsResponse;
 import com.fearefull.wordsearch.features.SoundPlayer;
 import com.fearefull.wordsearch.features.ViewModelFactory;
 import com.fearefull.wordsearch.WordSearchApp;
@@ -25,8 +27,10 @@ import com.fearefull.wordsearch.custom.layout.FlowLayout;
 import com.fearefull.wordsearch.features.gameover.GameOverActivity;
 import com.fearefull.wordsearch.features.FullscreenActivity;
 import com.fearefull.wordsearch.model.UsedWord;
+import com.fearefull.wordsearch.model.Word;
 
 import java.util.List;
+import java.util.Objects;
 
 import javax.inject.Inject;
 
@@ -42,6 +46,8 @@ public class GamePlayActivity extends FullscreenActivity {
             "com.fearefull.wordsearch.features.gameplay.GamePlayActivity.ROW";
     public static final String EXTRA_COL_COUNT =
             "com.fearefull.wordsearch.features.gameplay.GamePlayActivity.COL";
+    public static final String EXTRA_DATA =
+            "com.fearefull.wordsearch.features.gameplay.GamePlayActivity.DATA";
 
     private static final StreakLineMapper STREAK_LINE_MAPPER = new StreakLineMapper();
 
@@ -119,7 +125,8 @@ public class GamePlayActivity extends FullscreenActivity {
             } else {
                 int rowCount = extras.getInt(EXTRA_ROW_COUNT);
                 int colCount = extras.getInt(EXTRA_COL_COUNT);
-                mViewModel.generateNewGameRound(rowCount, colCount);
+                List<Word> words = (List<Word>) extras.getSerializable(EXTRA_DATA);
+                mViewModel.generateNewGameRound(rowCount, colCount, words);
             }
         }
 
@@ -161,7 +168,7 @@ public class GamePlayActivity extends FullscreenActivity {
                     uw.getAnswerLine().color = mGrayColor;
                 }
                 textView.setBackgroundColor(uw.getAnswerLine().color);
-                textView.setText(uw.getString());
+                textView.setText(uw.getTitle());
                 textView.setTextColor(Color.WHITE);
                 textView.setPaintFlags(textView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
@@ -183,7 +190,7 @@ public class GamePlayActivity extends FullscreenActivity {
         showLoading(false, null);
         if (gameState instanceof GamePlayViewModel.Generating) {
             GamePlayViewModel.Generating state = (GamePlayViewModel.Generating) gameState;
-            String text = "Generating " + state.rowCount + "x" + state.colCount + " grid";
+            String text = "درحال تولید " + state.rowCount + "x" + state.colCount;
             showLoading(true, text);
         } else if (gameState instanceof GamePlayViewModel.Finished) {
             showFinishGame(((GamePlayViewModel.Finished) gameState).mGameData.getId());
@@ -293,17 +300,17 @@ public class GamePlayActivity extends FullscreenActivity {
                 uw.getAnswerLine().color = mGrayColor;
             }
             tv.setBackgroundColor(uw.getAnswerLine().color);
-            tv.setText(uw.getString());
+            tv.setText(uw.getTitle());
             tv.setTextColor(Color.WHITE);
             tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
             mLetterBoard.addStreakLine(STREAK_LINE_MAPPER.map(uw.getAnswerLine()));
         }
         else {
-            String str = uw.getString();
+            String str = uw.getTitle();
             if (uw.isMystery()) {
                 int revealCount = uw.getRevealCount();
-                String uwString = uw.getString();
+                String uwString = uw.getTitle();
                 str = "";
                 for (int i = 0; i < uwString.length(); i++) {
                     if (revealCount > 0) {

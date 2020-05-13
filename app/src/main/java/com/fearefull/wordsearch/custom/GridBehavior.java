@@ -9,7 +9,7 @@ import android.view.View;
 import com.fearefull.wordsearch.R;
 
 /**
- * Created by abdularis on 22/06/17.
+ * Created by Aref Hosseini on 22/06/17.
  *
  * Base class untuk semua class yang memiliki karakteristik seperti grid
  */

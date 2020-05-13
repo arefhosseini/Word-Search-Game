@@ -11,7 +11,7 @@ import com.fearefull.wordsearch.features.settings.Preferences;
 import javax.inject.Inject;
 
 /**
- * Created by abdularis on 22/07/17.
+ * Created by Aref Hosseini on 22/07/17.
  */
 
 public class SoundPlayer {

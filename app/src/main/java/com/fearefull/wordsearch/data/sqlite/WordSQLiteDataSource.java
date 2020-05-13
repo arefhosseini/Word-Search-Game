@@ -12,7 +12,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 /**
- * Created by abdularis on 18/07/17.
+ * Created by Aref Hosseini on 18/07/17.
  */
 
 public class WordSQLiteDataSource implements WordDataSource {

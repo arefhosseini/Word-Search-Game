@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.TimerTask;
 
 /**
- * Created by abdularis on 14/04/17.
+ * Created by Aref Hosseini.
  */
 
 public class Timer {

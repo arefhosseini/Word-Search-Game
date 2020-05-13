@@ -2,6 +2,8 @@ package com.fearefull.wordsearch.di.modules;
 
 import android.content.Context;
 
+import com.fearefull.wordsearch.data.OntologyDataSource;
+import com.fearefull.wordsearch.data.json.OntologyJsonDataSource;
 import com.fearefull.wordsearch.data.sqlite.DbHelper;
 import com.fearefull.wordsearch.data.sqlite.GameDataSQLiteDataSource;
 import com.fearefull.wordsearch.data.xml.WordXmlDataSource;
@@ -14,7 +16,7 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
- * Created by abdularis on 18/07/17.
+ * Created by Aref Hosseini on 18/07/17.
  */
 
 @Module
@@ -42,6 +44,12 @@ public class DataSourceModule {
     @Singleton
     WordDataSource provideWordDataSource(Context context) {
         return new WordXmlDataSource(context);
+    }
+
+    @Provides
+    @Singleton
+    OntologyDataSource provideOntologyDataSource(Context context) {
+        return new OntologyJsonDataSource(context);
     }
 
 }

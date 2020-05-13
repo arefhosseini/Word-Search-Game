@@ -15,7 +15,7 @@ import com.fearefull.wordsearch.features.settings.Preferences;
 import javax.inject.Inject;
 
 /**
- * Created by abdularis on 21/04/17.
+ * Created by Aref Hosseini on 21/04/17.
  *
  * Extend this class to make a fullscreen activity
  */

@@ -1,5 +1,6 @@
 package com.fearefull.wordsearch.features.gamehistory;
 
+import androidx.core.view.ViewCompat;
 import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;

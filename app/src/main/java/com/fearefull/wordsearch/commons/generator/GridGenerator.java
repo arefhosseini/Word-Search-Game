@@ -1,7 +1,7 @@
 package com.fearefull.wordsearch.commons.generator;
 
 /**
- * Created by abdularis on 06/07/17.
+ * Created by Aref Hosseini on 06/07/17.
  *
  * Base class untuk grid generator
  */
